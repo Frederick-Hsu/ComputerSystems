@@ -1,0 +1,10 @@
+# These file extensions and directories will be ignored by git tracking:
+
+*.o
+*.s
+*.a
+*.so*
+*.user
+*.out
+
+*build-*/
