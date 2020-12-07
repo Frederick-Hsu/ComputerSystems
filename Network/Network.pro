@@ -7,4 +7,7 @@ SOURCES += \
     hostinfo.c
 
 DISTFILES += \
-    build.sh
+    build.sh \
+    libnet/Makefile
+
+HEADERS +=

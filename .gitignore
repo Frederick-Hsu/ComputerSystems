@@ -6,5 +6,7 @@
 *.so*
 *.user
 *.out
+*.gch
+*.txt
 
 *build-*/
