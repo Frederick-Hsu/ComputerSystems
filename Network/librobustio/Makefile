@@ -57,5 +57,5 @@ show :
 	@echo "OBJECTS = " $(OBJECTS)
 
 install :
-	cp *.h *.a *.so* ../robustio_test/
-	cp *.so* ../build-robustio*/
+	-cp robust_io.h $(Project) *.so* ../client/
+	-cp robust_io.h $(Project) *.so* ../server/

@@ -8,3 +8,6 @@ SOURCES += \
 
 HEADERS += \
     net.h
+
+DISTFILES += \
+    Makefile

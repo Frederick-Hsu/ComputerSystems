@@ -51,3 +51,7 @@ show :
 	@echo "SOURCES = " $(SOURCES)
 	@echo "HEADERS = " $(HEADERS)
 	@echo "OBJECTS = " $(OBJECTS)
+
+install :
+	-cp net.h $(Project) *.so* ../client/
+	-cp net.h $(Project) *.so* ../server/

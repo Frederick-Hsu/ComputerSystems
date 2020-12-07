@@ -10,3 +10,6 @@ SOURCES += \
 
 HEADERS += \
     robust_io.h
+
+DISTFILES += \
+    Makefile
