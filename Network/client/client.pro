@@ -8,3 +8,5 @@ SOURCES += \
 
 DISTFILES += \
     build.sh
+
+HEADERS +=

@@ -5,6 +5,7 @@
 #
 #
 
+rm -frv echo_server
 rm -frv *.so*
 rm -frv *.a
 
@@ -18,4 +19,6 @@ make rebuild
 make install
 
 cd ../server/
-gcc -v echo_server.c -o echo_server -L./ -lnet -lrobustio -I./
+gcc -rdynamic echo_server.c -o echo_server -ldl
+
+# ./echo_server 2058
