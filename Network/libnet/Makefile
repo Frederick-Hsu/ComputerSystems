@@ -26,10 +26,11 @@ libnet.a : $(OBJECTS)
 	ar rcs $@ $^
 
 libnet.so : $(OBJECTS)
-	$(CC) $(CFLAGS) -shared -Wl,-soname=$@.1 -o $@.1.0.0 $^
-	-ln -sf $@.1.0.0 $@.1.0
-	-ln -sf $@.1.0.0 $@.1
-	-ln -sf $@.1.0.0 $@
+	# $(CC) $(CFLAGS) -shared -Wl,-soname=$@.1 -o $@.1.0.0 $^
+	# -ln -sf $@.1.0.0 $@.1.0
+	# -ln -sf $@.1.0.0 $@.1
+	# -ln -sf $@.1.0.0 $@
+	$(CC) $(CFLAGS) -shared $^ -o $@
 
 %.o : %.c
 	$(CC) $(CFLAGS) -fPIC -c $< -o $@
