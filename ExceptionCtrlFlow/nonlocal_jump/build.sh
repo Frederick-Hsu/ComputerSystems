@@ -5,6 +5,6 @@
 # Copyright(C)  2020    All rights reserved.
 #
 
-gcc setjmp.c -o setjmp
+gcc setjmp.c -o setjmp.o
 
-gcc restart.c -o restart
+gcc restart.c -o restart.o
