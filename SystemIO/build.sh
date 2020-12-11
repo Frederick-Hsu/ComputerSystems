@@ -7,6 +7,8 @@
 # Copyright(C)  2020    All rights reserved.
 #
 
-gcc manip_file.c -o manip_file
+gcc manip_file.c -o manip_file.o
 
-gcc std_in_out.c -o std_in_out
+gcc std_in_out.c -o std_in_out.o
+
+gcc redirect.c -o redirect.o

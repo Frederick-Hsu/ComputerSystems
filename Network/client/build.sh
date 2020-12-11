@@ -3,7 +3,7 @@
 # File name     : build.sh
 # 
 
-rm -frv echo_client
+rm -frv echo_client.o
 rm -frv *.so*
 rm -frv *.a
 
@@ -18,6 +18,6 @@ make rebuild
 make install 
 
 cd ../client/
-gcc -rdynamic echo_client.c -o echo_client -ldl
+gcc -rdynamic echo_client.c -o echo_client.o -ldl
 
-# ./echo_client 127.0.0.1 2058
+# ./echo_client.o 127.0.0.1 2058

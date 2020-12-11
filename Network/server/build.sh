@@ -5,7 +5,7 @@
 #
 #
 
-rm -frv echo_server
+rm -frv echo_server.o
 rm -frv *.so*
 rm -frv *.a
 
@@ -19,6 +19,6 @@ make rebuild
 make install
 
 cd ../server/
-gcc -rdynamic echo_server.c -o echo_server -ldl
+gcc -rdynamic echo_server.c -o echo_server.o -ldl
 
-# ./echo_server 2058
+# ./echo_server.o 2058

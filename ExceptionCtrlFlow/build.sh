@@ -2,6 +2,8 @@
 # Description   : This shell script is used to build the ExceptionCtrlFlow
 #
 
+gcc hello.c -o hello.o
+objdump -d hello.o > hello.disassembly
 
 echo "Build and execute the fork..."
 # compile the fork.c source file
