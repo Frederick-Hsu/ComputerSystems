@@ -56,3 +56,5 @@ show :
 install :
 	-cp net.h $(Project) *.so* ../client/
 	-cp net.h $(Project) *.so* ../server/
+	# -ln -sf net.h ../TINY_Web_Server/net.h
+	-cp net.h $(Project) *.so* ../TINY_Web_Server/

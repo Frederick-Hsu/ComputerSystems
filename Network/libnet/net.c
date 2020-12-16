@@ -11,7 +11,7 @@
 
 #define LISTEN_QUEUE    1024
 
-int open_clientfd(const char* server_ipaddr, int port)
+int open_clientfd(const char* server_ipaddr, unsigned int port)
 {
     int clientfd;
     struct sockaddr_in servaddr;

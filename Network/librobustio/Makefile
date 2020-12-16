@@ -60,3 +60,4 @@ show :
 install :
 	-cp robust_io.h $(Project) *.so* ../client/
 	-cp robust_io.h $(Project) *.so* ../server/
+	-cp robust_io.h $(Project) *.so* ../TINY_Web_Server/
