@@ -11,3 +11,6 @@
 *.disassembly
 
 *build-*/
+stdc_default_ver
+stdc_ver
+Network/TINY_Web_Server/TINY_Web_Server

@@ -15,6 +15,10 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <dlfcn.h>
+#include <sys/select.h>
+
+#include "net.h"
+#include "robust_io.h"
 
 #define MAXLINE     0X4000
 
@@ -78,5 +82,29 @@ void command(void)
 
 void echo(int connfd)
 {
+    size_t n;
+    char buf[MAXLINE];
+    rio_t rio;
 
+    void* librobustio_handler = dlopen("./librobustio.so", RTLD_LAZY);
+    assert(librobustio_handler != NULL);
+    void (*rio_readinitb)(rio_t* rp, int fd);
+    rio_readinitb = dlsym(librobustio_handler, "rio_readinitb");
+    assert(rio_readinitb != NULL);
+    rio_readinitb(&rio, connfd);
+
+    ssize_t (*rio_readlineb)(file_descriptor fd, void* userbuf, size_t n);
+    rio_readlineb = dlsym(librobustio_handler, "rio_readlineb");
+    assert(rio_readlineb != NULL);
+
+    ssize_t (*rio_writen)(file_descriptor fd, void* userbuf, size_t n);
+    rio_writen = dlsym(librobustio_handler, "rio_writen");
+    assert(rio_writen != NULL);
+
+    while ((n = rio_readlineb(connfd, buf, MAXLINE)) != 0)
+    {
+        printf("server received %ld bytes.\n", n);
+        rio_writen(connfd, buf, MAXLINE);
+    }
+    assert(dlclose(librobustio_handler) == 0);
 }

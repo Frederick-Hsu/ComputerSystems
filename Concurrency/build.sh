@@ -16,7 +16,15 @@ make rebuild
 cp -rv *.h *.a *.so ../Concurrency/
 
 cd ../Concurrency/
-ls -l
+
 gcc -rdynamic concurrent_echo_server_basedon_process.c -o concurrent_echo_server_basedon_process.o -ldl
 
 gcc -rdynamic concurrent_echo_server_basedon_select.c -o concurrent_echo_server_basedon_select.o -ldl
+
+gcc -rdynamic echo_client.c -o echo_client.o -ldl
+
+gcc concurrent_echo_server_basedon_eventdriven.c -o concurrent_echo_server_basedon_eventdriven.o ./libnet.so ./librobustio.so
+
+gcc concurrent_echo_client.c -o concurrent_echo_client.o ./libnet.so ./librobustio.so
+
+ls -l
